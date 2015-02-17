@@ -28,6 +28,10 @@ class IndexController extends Zend_Controller_Action
 
     }
 
+    public function clientsAction(){
+
+    }
+
     public function videosAction()
     {
 
@@ -43,14 +47,16 @@ class IndexController extends Zend_Controller_Action
 
     }
 
+    public function loginAction(){
+
+    }
+
     public function contactAction()
     {
 
     }
 
-    public function loginAction(){
 
-    }
 
     public function sendemailAction()
     {
