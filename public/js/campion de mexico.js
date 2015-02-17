@@ -2,8 +2,6 @@ $(document).ready(main);
 
 function main() {
 
-    $('.logIn').click(showLogIn);
-
     $('.know-more').click(showInfo);
 
     $('.addUser').click(showMsg);
@@ -17,10 +15,6 @@ function showInfo() {
     $('#myModal').modal('show');
     $('#myModal .modal-body').append($image);
     $('#myModal .modal-body').append($text);
-};
-
-function showLogIn() {
-    $('#modalLogIn').modal('show');
 };
 
 function showMsg() {

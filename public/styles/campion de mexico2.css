@@ -109,7 +109,6 @@ video {
 }
 
 /*Contacto*/
-
 form {
     border: 2px solid #dbdbdb;
 }
@@ -120,7 +119,7 @@ form .form-group {
     margin-left: 40px;
 }
 
-.contact, .register, .clientes, .products, .enterprise, .events, .seminew, .services, .videos {
+.contact, .register, .clientes, .products, .enterprise, .events, .seminew, .services, .videos, .login {
     border-top: 2px solid #00FFD1;
     width: 90%;
     margin: auto;

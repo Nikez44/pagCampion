@@ -48,6 +48,10 @@ class IndexController extends Zend_Controller_Action
 
     }
 
+    public function loginAction(){
+
+    }
+
     public function sendemailAction()
     {
         require 'librarys/PHPMailerAutoload.php';

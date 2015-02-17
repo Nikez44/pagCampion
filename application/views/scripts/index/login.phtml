@@ -1,0 +1,38 @@
+<style>
+    #registerBtn {
+        float: right;
+    }
+</style>
+
+<div class="login">
+    <div class="container">
+        <center><h1>Log In</h1></center>
+
+        <form method="post"
+              action="<?php echo $this->url(array('module' => 'default', 'controller' => 'user', 'action' => 'login')); ?>">
+            <div class="form-group">
+                <label for="inputEmail">Correo</label>
+                <input type="email" class="form-control" id="inputEmail" placeholder="Correo" name="inputEmail">
+            </div>
+
+            <div class="form-group">
+                <label for="inputPassword">Contraseña</label>
+                <input type="password" class="form-control" id="inputPassword" placeholder="Contraseña"
+                       name="inputPassword">
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-info">Entrar</button>
+            </div>
+        </form>
+
+        <br/>
+
+        <a href="<?php echo $this->url(array('module' => 'default', 'controller' => 'user', 'action' => 'register')); ?>">
+            <button id="registerBtn" class="btn btn-info">
+                Registrate
+            </button>
+        </a>
+
+    </div>
+</div>
