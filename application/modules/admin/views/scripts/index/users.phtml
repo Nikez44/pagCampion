@@ -1,6 +1,7 @@
 <div class="users">
     <div class="container">
         <center><h1>Usuarios</h1></center>
+        <br/>
         <div class="container">
 
             <table id='tableClientes'>
@@ -17,7 +18,7 @@
                 <?php foreach ($this->entries as $entry): ?>
                     <tr>
                         <form
-                            action="<?php echo $this->url(array('module' => 'default', 'controller' => 'user', 'action' => 'modify')); ?>"
+                            action="<?php echo $this->url(array('module' => 'admin', 'controller' => 'user', 'action' => 'modify')); ?>"
                             method="post">
                             <td class="idClient">
                                 <input type="number" class="form-control" name="id"
@@ -73,3 +74,5 @@
         </div>
     </div>
 </div>
+
+<br/>

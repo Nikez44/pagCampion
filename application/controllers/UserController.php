@@ -10,9 +10,7 @@ class UserController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        // action body
-        $user = new Application_Model_UserMapper();
-        $this->view->entries = $user->fetchAll();
+
     }
 
     public function signAction()
@@ -34,7 +32,7 @@ class UserController extends Zend_Controller_Action
         }
     }
 
-    public function modifyAction()
+    /*public function modifyAction()
     {
 
         $request = $this->getRequest();
@@ -55,7 +53,7 @@ class UserController extends Zend_Controller_Action
         }
 
         return $this->_helper->redirector('index');
-    }
+    }*/
 
     public function loginAction()
     {
