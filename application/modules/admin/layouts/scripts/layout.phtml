@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Campion de México</title>
+
+    <?php
+    $this->headLink()->appendStylesheet($this->baseUrl() . '/bootstrap-3.3.2-dist/bootstrap-3.3.2-dist/css/bootstrap.min.css');
+    $this->headLink()->appendStylesheet($this->baseUrl() . '/styles/campion de mexico2.css');
+
+    $this->headScript()->appendFile($this->baseUrl() . '/js/jquery-2.1.3.min.js');
+    $this->headScript()->appendFile($this->baseUrl() . '/bootstrap-3.3.2-dist/bootstrap-3.3.2-dist/js/bootstrap.min.js');
+    $this->headScript()->appendFile($this->baseUrl() . '/js/campion de mexico.js');
+
+    echo $this->headLink();
+    echo $this->headScript();
+    ?>
+
+</head>
+<body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Campion de México</a>
+            </div>
+
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li>Usuarios</li>
+                    <li>Productos</li>
+                    <li>Informacion</li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li>Bienvenido</li>
+                    <li><a href="#"><i class="glyphicon glyphicon-lock"></i> Salir</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <?php echo $this->layout()->content ?>
+
+    <footer>
+        <div class="row">
+            <div class="col-md-8">
+                <br/>
+                <ul>
+                    <li>2015 Campion de Mexico S.A. DE C.V.</li>
+                    <li>KM 17 Carr. MERIDA-PROGRESO, Tablaje Catastral 16503 C.P. 97300 Mérida, Yucatán, México</li>
+                    <li>Tel. (01 999) 911.01.84 Copyright c 2015 www.campionmexico.com. Todos los derechos reservados.</li>
+                    <li>Aviso de Privacidad</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
