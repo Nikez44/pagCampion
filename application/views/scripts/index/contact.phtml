@@ -1,0 +1,29 @@
+<div class="contact">
+    <div class="container">
+        <center><h1>Contáctanos</h1></center>
+
+        <form
+            action="<?php echo $this->url(array('module' => 'default', 'controller' => 'index', 'action' => 'sendemail')); ?>"
+            method="post">
+            <div class="form-group">
+                <label for="inputName">Nombre</label>
+                <input type="text" class="form-control" id="inputName" placeholder="Nombre" name="inputName">
+            </div>
+
+            <div class="form-group">
+                <label for="inputEmail">Correo</label>
+                <input type="text" class="form-control" id="inputEmail" placeholder="Correo" name="inputEmail">
+            </div>
+
+            <div class="form-group">
+                <label for="inputMessage">Mensaje</label>
+                <textarea type="text" class="form-control" rows="4" id="inputMessage" name="inputMessage"></textarea>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-info">Enviar</button>
+            </div>
+        </form>
+
+    </div>
+</div>
