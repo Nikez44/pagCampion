@@ -7,6 +7,7 @@ class Application_Model_User
     protected $_lastName;
     protected $_email;
     protected $_password;
+    protected $_typeUserId;
     protected $_date_birth;
     protected $_sex;
     protected $_id;
@@ -130,6 +131,23 @@ class Application_Model_User
     public function setPassword($password)
     {
         $this->_password = $password;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTypeUserId()
+    {
+        return $this->_typeUserId;
+    }
+
+    /**
+     * @param mixed $typeUserId
+     */
+    public function setTypeUserId($typeUserId)
+    {
+        $this->_typeUserId = $typeUserId;
         return $this;
     }
 

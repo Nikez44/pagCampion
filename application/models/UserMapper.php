@@ -32,6 +32,7 @@ class Application_Model_UserMapper
             'last_name' => $user->getLastName(),
             'email' => $user->getEmail(),
             'password' => $user->getPassword(),
+            'type_user_id' => $user->getTypeUserId(),
             'date_birth' => $user->getDateBirth(),
             'sex' => $user->getSex(),
         );
@@ -57,6 +58,7 @@ class Application_Model_UserMapper
             ->setLastName($row->last_name)
             ->setEmail($row->email)
             ->setPassword($row->password)
+            ->setTypeUserId($row->type_user_id)
             ->setDateBirth($row->date_birth)
             ->setSex($row->sex);
     }
@@ -74,6 +76,7 @@ class Application_Model_UserMapper
             ->setLastName($row->last_name)
             ->setEmail($row->email)
             ->setPassword($row->password)
+            ->setTypeUserId($row->type_user_id)
             ->setDateBirth($row->date_birth)
             ->setSex($row->sex);
 
@@ -100,6 +103,7 @@ class Application_Model_UserMapper
                 ->setLastName($row->last_name)
                 ->setEmail($row->email)
                 ->setPassword($row->password)
+                ->setTypeUserId($row->type_user_id)
                 ->setDateBirth($row->date_birth)
                 ->setSex($row->sex);
             $entries[] = $entry;
