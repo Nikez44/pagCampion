@@ -19,22 +19,22 @@ class Admin_UserController extends Zend_Controller_Action
     public function modifyAction()
     {
 
-        /*$request = $this->getRequest();
+        $request = $this->getRequest();
         $data = $request->getParams();
 
         if ($this->getRequest()->isPost()) {
 
-            $user = new Application_Model_User($data);
+            $id = $data[id];
             $mapper = new Application_Model_UserMapper();
 
             if (isset($data['btnDelete'])) {
-                $mapper->delete($user);
+
 
             } else {
-                $mapper->save($user);
+               $this->view->id = $id;
             }
 
-        }*/
+        }
 
     }
 
