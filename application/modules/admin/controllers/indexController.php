@@ -19,10 +19,4 @@ class Admin_IndexController extends Zend_Controller_Action
 
     }
 
-    public function usersAction(){
-        // action body
-        $user = new Application_Model_UserMapper();
-        $this->view->entries = $user->fetchAll();
-    }
-
 }

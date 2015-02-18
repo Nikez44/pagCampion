@@ -12,13 +12,14 @@ class Admin_UserController extends Zend_Controller_Action
 
     public function indexAction()
     {
-
+        $user = new Application_Model_UserMapper();
+        $this->view->entries = $user->fetchAll();
     }
 
     public function modifyAction()
     {
 
-        $request = $this->getRequest();
+        /*$request = $this->getRequest();
         $data = $request->getParams();
 
         if ($this->getRequest()->isPost()) {
@@ -33,8 +34,8 @@ class Admin_UserController extends Zend_Controller_Action
                 $mapper->save($user);
             }
 
-        }
-        return $this->redirect('admin/index/users');
+        }*/
+
     }
 
 }
