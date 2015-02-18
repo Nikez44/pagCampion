@@ -63,6 +63,28 @@ class Application_Model_UserMapper
             ->setSex($row->sex);
     }
 
+    public function findById($id){
+
+        $result = $this->getDbTable()->find($id);
+        if (0 == count($result)) {
+            return;
+        }
+        $row = $result->current();
+
+        $user = new Application_Model_User();
+
+        $user->setId($row->id)
+            ->setName($row->name)
+            ->setLastName($row->last_name)
+            ->setEmail($row->email)
+            ->setPassword($row->password)
+            ->setTypeUserId($row->type_user_id)
+            ->setDateBirth($row->date_birth)
+            ->setSex($row->sex);
+
+        return $user;
+    }
+
     public function findByEmail($email)
     {
 

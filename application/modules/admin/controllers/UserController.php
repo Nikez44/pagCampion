@@ -26,12 +26,13 @@ class Admin_UserController extends Zend_Controller_Action
 
             $id = $data[id];
             $mapper = new Application_Model_UserMapper();
+            $user = $mapper->findById($id);
 
             if (isset($data['btnDelete'])) {
 
 
             } else {
-               $this->view->id = $id;
+               $this->view->user = $user;
             }
 
         }
