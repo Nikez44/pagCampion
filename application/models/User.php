@@ -1,18 +1,18 @@
 <?php
 
-class Application_Model_User
+class Application_Model_User extends Application_Model_Abstract
 {
 
     protected $_name;
     protected $_lastName;
     protected $_email;
     protected $_password;
-    protected $_typeUserId;
-    protected $_date_birth;
+    protected $_typeUser;
+    protected $_dateBirth;
     protected $_sex;
     protected $_id;
 
-    public function __construct(array $options = null)
+    /*public function __construct(array $options = null)
     {
         if (is_array($options)) {
             $this->setOptions($options);
@@ -47,7 +47,7 @@ class Application_Model_User
             }
         }
         return $this;
-    }
+    }*/
 
     /**
      * @return mixed
@@ -63,7 +63,7 @@ class Application_Model_User
     public function setId($id)
     {
         $this->_id = (int)$id;
-        return $this;
+
     }
 
     /**
@@ -80,7 +80,7 @@ class Application_Model_User
     public function setName($name)
     {
         $this->_name = (string)$name;
-        return $this;
+
     }
 
     /**
@@ -97,7 +97,7 @@ class Application_Model_User
     public function setLastName($lastName)
     {
         $this->_lastName = $lastName;
-        return $this;
+
     }
 
     /**
@@ -114,7 +114,7 @@ class Application_Model_User
     public function setEmail($email)
     {
         $this->_email = $email;
-        return $this;
+
     }
 
     /**
@@ -131,24 +131,24 @@ class Application_Model_User
     public function setPassword($password)
     {
         $this->_password = $password;
-        return $this;
+
     }
 
     /**
      * @return mixed
      */
-    public function getTypeUserId()
+    public function getTypeUser()
     {
-        return $this->_typeUserId;
+        return $this->_typeUser;
     }
 
     /**
      * @param mixed $typeUserId
      */
-    public function setTypeUserId($typeUserId)
+    public function setTypeUser($typeUser)
     {
-        $this->_typeUserId = $typeUserId;
-        return $this;
+        $this->_typeUser = $typeUser;
+
     }
 
     /**
@@ -156,16 +156,16 @@ class Application_Model_User
      */
     public function getDateBirth()
     {
-        return $this->_date_birth;
+        return $this->_dateBirth;
     }
 
     /**
-     * @param mixed $date_birth
+     * @param mixed $dateBirth
      */
-    public function setDateBirth($date_birth)
+    public function setDateBirth($dateBirth)
     {
-        $this->_date_birth = $date_birth;
-        return $this;
+        $this->_dateBirth = $dateBirth;
+
     }
 
     /**
@@ -182,7 +182,7 @@ class Application_Model_User
     public function setSex($sex)
     {
         $this->_sex = $sex;
-        return $this;
+
     }
 
 }

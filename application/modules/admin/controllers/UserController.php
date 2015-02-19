@@ -12,11 +12,11 @@ class Admin_UserController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        $user = new Application_Model_UserMapper();
-        $this->view->entries = $user->fetchAll();
+        $user = new Application_Model_Mapper_User();
+        $this->view->entries = $user->findAll();
     }
 
-    public function modifyAction()
+    public function editAction()
     {
 
         $request = $this->getRequest();
@@ -24,9 +24,9 @@ class Admin_UserController extends Zend_Controller_Action
 
         if ($this->getRequest()->isPost()) {
 
-            $id = $data[id];
-            $mapper = new Application_Model_UserMapper();
-            $user = $mapper->findById($id);
+            $id = $data['id'];
+            $mapper = new Application_Model_Mapper_User();
+            $user = $mapper->findOneBy($id);
 
             if (isset($data['btnDelete'])) {
 
@@ -38,6 +38,8 @@ class Admin_UserController extends Zend_Controller_Action
         }
 
     }
+
+
 
 }
 

@@ -20,7 +20,7 @@
                 <?php foreach ($this->entries as $entry): ?>
                     <tr>
                         <form
-                            action="<?php echo $this->url(array('module' => 'admin', 'controller' => 'user', 'action' => 'modify')); ?>"
+                            action="<?php echo $this->url(array('module' => 'admin', 'controller' => 'user', 'action' => 'edit')); ?>"
                             method="post">
                             <td class="idClient">
                                 <input type="number" class="form-control" name="id"
@@ -43,8 +43,8 @@
                                        value="<?php echo $this->escape($entry->getPassword()); ?>"/>
                             </td>
                             <td class="typeUserClient">
-                                <input type="text" class="form-control" name="typeUserId"
-                                       value="<?php echo $this->escape($entry->getTypeUserId()); ?>"/>
+                                <input type="text" class="form-control" name="typeUser"
+                                       value="<?php echo $this->escape($entry->getTypeUser()->getName()); ?>"/>
                             </td>
                             <td class="dateBirthClient">
                                 <input type="date" class="form-control" name="dateBirth"
