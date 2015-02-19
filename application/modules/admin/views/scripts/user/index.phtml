@@ -1,7 +1,17 @@
 <div class="users">
     <div class="container">
-        <center><h1>Usuarios</h1></center>
+
+        <div class="row">
+            <div class="col-md-10">
+                <h1 class="text-center">Usuarios</h1>
+            </div>
+            <div class="col-md-2">
+                <a href="<?php echo $this->url(array('module' => 'admin', 'controller' => 'user', 'action' => 'new')); ?>"
+                   class="btn btn-success pull-right">Nuevo Usuario</a>
+            </div>
+        </div>
         <br/>
+
         <div class="container">
 
             <table id='tableClientes'>
