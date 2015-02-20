@@ -37,7 +37,7 @@ class Admin_UserController extends Zend_Controller_Action
             $typeUser = $newType->findById($data['typeUser']);
             $user->setTypeUser($typeUser);
 
-            $this->_redirect('/admin/user/');
+            $this->_helper->redirector('index');
         }
 
     }
@@ -64,7 +64,7 @@ class Admin_UserController extends Zend_Controller_Action
         $user = $userService->findById($id);
         $userService->delete($user);
 
-        $this->_redirect('/admin/user/');
+        $this->_helper->redirector('index');
 
     }
 
@@ -93,7 +93,7 @@ class Admin_UserController extends Zend_Controller_Action
             $userService = new Application_Service_User();
             $userService->update($user);
 
-            $this->_redirect('/admin/user/');
+            $this->_helper->redirector('index');
         }
 
     }
