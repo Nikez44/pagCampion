@@ -26,11 +26,11 @@ class Application_Service_User {
         return $this->_userMapper->insert($user);
     }
 
-    public function delete($user){
+    public function delete(Application_Model_User $user){
         $this->_userMapper->delete($user);
     }
 
-    public function update($user){
+    public function update(Application_Model_User $user){
         return $this->_userMapper->update($user);
     }
 
