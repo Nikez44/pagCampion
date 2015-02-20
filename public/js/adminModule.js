@@ -1,5 +1,7 @@
+var idUser;
+
 function confirmDeleteUser(id,name){
-    idUser = id;
+    var idUser = id;
     $("#nameUser").text(name);
     $("#dialog-delete").modal('show');
 }

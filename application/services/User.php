@@ -22,7 +22,7 @@ class Application_Service_User {
         return $this->_userMapper->findOneBy($id);
     }
 
-    public function addUser($user){
+    public function addUser(Application_Model_User $user){
         return $this->_userMapper->insert($user);
     }
 
