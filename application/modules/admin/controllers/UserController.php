@@ -12,8 +12,8 @@ class Admin_UserController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        $user = new Application_Model_Mapper_User();
-        $this->view->entries = $user->findAll();
+        $userService = new Application_Service_User();
+        $this->view->entries = $userService->findAll();
     }
 
     public function newAction(){
@@ -29,38 +29,71 @@ class Admin_UserController extends Zend_Controller_Action
             $user = new Application_Model_User();
             $user->createFromArray($data);
 
-            $userMapper = new Application_Model_Mapper_User();
-            $userMapper->insert($user);
+            $userService = new Application_Service_User();
+            $userService->addUser($user);
 
             //Agrega el objeto TypeUser a la clase
-            $newType = new Application_Model_Mapper_TypeUser();
-            $typeUser = $newType->findOneBy($data['typeUser']);
+            $newType = new Application_Service_TypeUser();
+            $typeUser = $newType->findById($data['typeUser']);
             $user->setTypeUser($typeUser);
 
-            return $this->_helper->redirector('index');
+            $this->_redirect('/admin/user/');
         }
 
     }
 
+    /**
+     *
+     */
     public function editAction()
     {
+        $id = $this->getRequest()->getParam('id');
 
-        $request = $this->getRequest();
-        $data = $request->getParams();
+        $userService = new Application_Service_User();
+        $this->view->user = $userService->findById($id);
 
-        if ($this->getRequest()->isPost()) {
+    }
+
+    /**
+     * @return mixed
+     */
+    public function deleteAction(){
+
+        $id = $this->getRequest()->getParam('id');
+        $userService = new Application_Service_User();
+        $user = $userService->findById($id);
+        $userService->delete($user);
+
+        $this->_redirect('/admin/user/');
+
+    }
+
+    public function updateAction(){
+
+        if($this->getRequest()->isPost()){
+
+            $data = $this->getRequest()->getParams();
 
             $id = $data['id'];
-            $mapper = new Application_Model_Mapper_User();
-            $user = $mapper->findOneBy($id);
+            $typeUserId = $data['typeUser'];
 
-            if (isset($data['btnDelete'])) {
+            $month = $this->changeMonthFormat($data);
+            $dateBirth = $data['inputYear'] . "-" . $month . "-" . $data['inputDay'];
+            $data['dateBirth'] = $dateBirth;
 
+            $user = new Application_Model_User();
+            $user->createFromArray($data);
 
-            } else {
-               $this->view->user = $user;
-            }
+            $typeService = new Application_Service_TypeUser();
+            $type = $typeService->findById($typeUserId);
 
+            $user->setId($id);
+            $user->setTypeUser($type);
+
+            $userService = new Application_Service_User();
+            $userService->update($user);
+
+            $this->_redirect('/admin/user/');
         }
 
     }

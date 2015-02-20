@@ -4,7 +4,7 @@
 
         <?php $currentUser = $this->user ?>
         <form method="post"
-              action="<?php echo $this->url(array('module' => 'default', 'controller' => 'user', 'action' => 'sign')); ?>">
+              action="<?php echo $this->url(array('module' => 'admin', 'controller' => 'user', 'action' => 'update')); ?>">
             <div class="form-group">
                 <div class="row">
                     <div class="col-md-6">
@@ -35,7 +35,7 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col-md-6">
-
+                        <?php $elementos = explode('-',$currentUser->getDateBirth());?>
                         <label for="password">Fecha de Nacimiento</label>
                         <div class="btn-group" role="group" aria-label="...">
 
@@ -43,50 +43,78 @@
                                 <option>Día</option>
                                 <?php
                                 for ($i = 1; $i <= 31; $i++) {
-                                    echo "<option>$i</option>";
+                                    if($elementos[2]==$i){
+                                        echo "<option selected>$i</option>";
+                                    }else {
+                                        echo "<option>$i</option>";
+                                    }
                                 }
                                 ?>
                             </select>
 
                             <select type="text" class="btn btn-default" name="inputMonth">
-                                <option>Mes</option>
-                                <option>Enero</option>
-                                <option>Febrero</option>
-                                <option>Marzo</option>
-                                <option>Abril</option>
-                                <option>Mayo</option>
-                                <option>Junio</option>
-                                <option>Julio</option>
-                                <option>Agosto</option>
-                                <option>Septiembre</option>
-                                <option>Octubre</option>
-                                <option>Noviembre</option>
-                                <option>Diciembre</option>
+                                <?php
+                                $months = array("Mes"=>0, "Enero"=>1, "Febrero"=>2, "Marzo"=>3, "Abril"=>4, "Mayo"=>5,
+                                                "Junio"=>6, "Julio"=>7, "Agosto"=>8, "Septiembre"=>9, "Octubre"=>10,
+                                                "Noviembre"=>11, "Diciembre"=>12);
+
+                                foreach($months as $month => $noMonth){
+                                    if($elementos[1]==$noMonth){
+                                        echo "<option selected>$month</option>";
+                                    }else {
+                                        echo "<option>$month</option>";
+                                    }
+                                }
+                                ?>
                             </select>
 
                             <select type="text" class="btn btn-default" name="inputYear">
                                 <option>Año</option>
                                 <?php
                                 for ($i = 1980; $i <= 2010; $i++) {
-                                    echo "<option>$i</option>";
+                                    if($elementos[0]==$i){
+                                        echo "<option selected>$i</option>";
+                                    }else {
+                                        echo "<option>$i</option>";
+                                    }
                                 }
                                 ?>
                             </select>
                         </div>
                     </div>
 
+                    <div class="col-md-6">
+                        <label for="inputType">Tipo de Usuario</label>
+                        <select type="text" class="btn btn-default" name="typeUser">
+                            <?php if($currentUser->getTypeUser()->getId()==1){?>
+                                <option value="1" selected>Administrador</option>
+                                <option value="2">Cliente</option>
+                            <?php }else{ ?>
+                                <option value="1">Administrador</option>
+                                <option value="2" selected>Cliente</option>
+                            <?php } ?>
+                        </select>
+                    </div>
 
                 </div>
             </div>
 
             <div class="form-group sex">
-                <label><input type="radio" name="sex" value="Hombre">Hombre</label>
-                <label><input type="radio" name="sex" value="Mujer">Mujer</label>
+                <?php if($currentUser->getSex()=="Mujer"){?>
+                    <label><input type="radio" name="sex" value="Hombre">Hombre</label>
+                    <label><input type="radio" name="sex" value="Mujer" checked>Mujer</label>
+                <?php }else{ ?>
+                    <label><input type="radio" name="sex" value="Hombre" checked>Hombre</label>
+                    <label><input type="radio" name="sex" value="Mujer">Mujer</label>
+                <?php } ?>
             </div>
 
             <div class="form-group">
-                <button type="submit" class="btn btn-info addUser">Enviar</button>
+                <button type="submit" class="btn btn-info addUser">Actualizar</button>
+                <a href="<?php echo $this->url(array('module'=>'admin', 'controller' => 'user', 'action' => 'index'),null,true);?>" class="btn btn-default pull-right" style="margin-right: 10px;">Cancelar</a>
             </div>
+
+            <input type="hidden" id="id" name="id" value="<?php echo $currentUser->getId();?>"/>
         </form>
 
     </div>

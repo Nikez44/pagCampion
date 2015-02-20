@@ -10,7 +10,7 @@
 
     $this->headScript()->appendFile($this->baseUrl() . '/js/jquery-2.1.3.min.js');
     $this->headScript()->appendFile($this->baseUrl() . '/bootstrap-3.3.2-dist/bootstrap-3.3.2-dist/js/bootstrap.min.js');
-    $this->headScript()->appendFile($this->baseUrl() . '/js/campion de mexico.js');
+    $this->headScript()->appendFile($this->baseUrl() . '/js/adminModule.js');
 
     echo $this->headLink();
     echo $this->headScript();
@@ -27,7 +27,7 @@
 
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="<?php echo $this->url(array('module' => 'admin', 'controller' => 'user', 'action' => 'index')); ?>">Usuarios</a></li>
+                    <li><a href="<?php echo $this->url(array('module' => 'admin', 'controller' => 'user', 'action' => 'index'), null, true); ?>">Usuarios</a></li>
                     <li><a href="#">Productos</a></li>
                     <li><a href="#">Informacion</a></li>
                 </ul>
