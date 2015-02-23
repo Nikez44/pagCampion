@@ -4,6 +4,11 @@ require_once '../library/Plugins/Layout.php';
 class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 {
 
+    protected function _initConfig()
+    {
+        Zend_Session::start();
+    }
+
     protected function _initLoaderResource()
     {
         $resourceLoader = new Zend_Loader_Autoloader_Resource(array(

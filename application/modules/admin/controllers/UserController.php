@@ -3,6 +3,17 @@
 class Admin_UserController extends Zend_Controller_Action
 {
 
+    public function preDispatch()
+    {
+        if (!Application_Service_Authentication::getInstance()->isAuthentication()) {
+            $this->_redirect('/admin/login');
+        }else{
+            if(Application_Service_Authentication::getInstance()->getTypeUser()==2){
+                $this->_redirect('/admin/login');
+            }
+        }
+    }
+
     public function init()
     {
         /* Initialize action controller here */

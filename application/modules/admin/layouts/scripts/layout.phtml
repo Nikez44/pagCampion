@@ -33,8 +33,11 @@
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Bienvenido</a></li>
-                    <li><a href="#"><i class="glyphicon glyphicon-lock"></i> Salir</a></li>
+                    <?php $session = new Zend_Session_Namespace('campion');?>
+                    <?php if(Application_Service_Authentication::getInstance()->getTypeUser()==Application_Model_TypeUser::$typeUserArray["ADMINISTRADOR"]){ ?>
+                        <li><a href="#"><?php echo 'Bienvenido: '.$session->user->getName()." ".$session->user->getLastName();?></a></li>
+                    <?php } ?>
+                    <li><a href="<?php echo $this->url(array('module'=>'admin','controller' => 'login', 'action' => 'logout'), null, true);?>"><i class="glyphicon glyphicon-lock"></i> Salir</a></li>
                 </ul>
             </div>
         </div>
