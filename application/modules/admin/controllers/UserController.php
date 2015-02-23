@@ -22,7 +22,9 @@ class Admin_UserController extends Zend_Controller_Action
 
             $data = $this->getRequest()->getParams();
 
-            $month = $this->changeMonthFormat($data);
+            $monthService = new Application_Service_MonthFormat();
+            $month = $monthService->changeMonthFormat($data['inputMonth']);
+
             $dateBirth = $data['inputYear'] . "-" . $month . "-" . $data['inputDay'];
             $data['dateBirth'] = $dateBirth;
 
@@ -31,11 +33,6 @@ class Admin_UserController extends Zend_Controller_Action
 
             $userService = new Application_Service_User();
             $userService->addUser($user);
-
-            //Agrega el objeto TypeUser a la clase
-            $newType = new Application_Service_TypeUser();
-            $typeUser = $newType->findById($data['typeUser']);
-            $user->setTypeUser($typeUser);
 
             $this->_helper->redirector('index');
         }
@@ -77,7 +74,9 @@ class Admin_UserController extends Zend_Controller_Action
             $id = $data['id'];
             $typeUserId = $data['typeUser'];
 
-            $month = $this->changeMonthFormat($data);
+            $monthService = new Application_Service_MonthFormat();
+            $month = $monthService->changeMonthFormat($data['inputMonth']);
+
             $dateBirth = $data['inputYear'] . "-" . $month . "-" . $data['inputDay'];
             $data['dateBirth'] = $dateBirth;
 
@@ -97,50 +96,6 @@ class Admin_UserController extends Zend_Controller_Action
         }
 
     }
-
-    public function changeMonthFormat($data)
-    {
-        switch ($data['inputMonth']) {
-            case "Enero":
-                $month = "1";
-                break;
-            case "Febrero":
-                $month = "2";
-                break;
-            case "Marzo":
-                $month = "3";
-                break;
-            case 'Abril':
-                $month = "4";
-                break;
-            case 'Mayo':
-                $month = "5";
-                break;
-            case 'Junio':
-                $month = "6";
-                break;
-            case 'Julio':
-                $month = "7";
-                break;
-            case 'Agosto':
-                $month = "8";
-                break;
-            case 'Septiembre':
-                $month = "9";
-                break;
-            case 'Octubre':
-                $month = "10";
-                break;
-            case 'Noviembre':
-                $month = "11";
-                break;
-            case 'Diciembre':
-                $month = "12";
-                break;
-        }
-        return $month;
-    }
-
 
 
 }
